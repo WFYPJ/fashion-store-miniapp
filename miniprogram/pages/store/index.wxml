@@ -1,0 +1,26 @@
+<view class="store-info-page">
+  <!-- 店铺门面图 -->
+  <!-- 店铺门面图（改为 COS 图片） -->
+  <image 
+    src="https://fzdtest-1350382597.cos.ap-nanjing.myqcloud.com/basic/storefront.jpg" 
+    class="storefront" 
+    mode="widthFix" 
+  />
+
+  <!-- 店铺信息 -->
+  <view class="store-name">🌟 暖频道羽绒服 服装店</view>
+  <view class="store-address">📍 地址：聊城市东昌府区侯营镇府前街路北胡同里商业街</view>
+  <view class="store-contact">📱 联系电话：15066350958</view>
+  <view class="store-contact">💬 添加微信：点击下方二维码</view>
+
+  <!-- 微信二维码 -->
+  <view class="qr-section">
+    <image 
+      src="https://fzdtest-1350382597.cos.ap-nanjing.myqcloud.com/basic/wechat.png" 
+      class="qr-image" 
+      mode="widthFix" 
+      bindtap="onContact" 
+    />
+    <view class="qr-tip">点击二维码可长按识别添加微信</view>
+  </view>
+</view>

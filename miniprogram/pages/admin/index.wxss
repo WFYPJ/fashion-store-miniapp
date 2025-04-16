@@ -1,0 +1,56 @@
+/* pages/admin/index.wxss */
+
+.admin-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.card-container {
+  width: 90%;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 50rpx 30rpx;
+  margin-bottom: 40rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.card:nth-child(1) {
+  background-color: #d89ca7; /* 上传新商品 */
+}
+.card:nth-child(2) {
+  background-color: #b0b8a6; /* 商品管理 */
+}
+.card:nth-child(3) {
+  background-color: #a3bacc; /* 编辑商品 */
+}
+
+.card button {
+  white-space: nowrap; /* 不允许换行 */
+  background-color: transparent;
+  color: #2e2e2e;
+  width:100%;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 24rpx 0;
+  border-radius: 12rpx;
+  border: none;
+}
+/* 多行按钮文字样式 */
+.btn-text-line1 {
+  font-weight: bold;
+  font-size: 30rpx;
+  line-height: 1.5;
+}
+
+.btn-text-line2 {
+  font-size: 26rpx;
+  line-height: 1.4;
+  opacity: 0.9;
+}

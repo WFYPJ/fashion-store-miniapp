@@ -1,0 +1,21 @@
+<!--pages/admin/index.wxml-->
+<view class="admin-page">
+  <view class="card-container">
+    <view class="card">
+      <button bindtap="goToAddProduct">➕ 上传新商品</button>
+    </view>
+
+    <view class="card">
+      <button bindtap="goToGoodsList">
+        <view class="btn-text-line1">📦 商品管理</view>
+        <view class="btn-text-line2">（上架 / 下架 / 删除）</view>
+      </button>
+    </view>
+
+    <!-- 回到首页 -->
+    <view class="card">
+      <button bindtap="goToHome">🏠 回到首页（刷新）</button>
+    </view>    
+    
+  </view>
+</view>

@@ -1,0 +1,39 @@
+<view class="home-page">
+
+<!-- 顶部轮播图 -->
+<view class="banner">
+  <swiper class="banner-swiper" indicator-dots autoplay interval="3000" circular>
+    <block wx:for="{{bannerList}}" wx:key="index">
+      <swiper-item>
+        <image
+          src="{{item}}"
+          class="banner-image"
+          mode="aspectFill"
+        />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<!-- 商品列表（两列展示） -->
+<view class="goods-section">
+  <view class="goods-grid">
+    <block wx:for="{{goodsList}}" wx:key="_id">
+      <view
+        class="goods-item"
+        data-id="{{item._id}}"
+        bindtap="onClickGoods"
+      >
+        <image class="goods-image" src="{{item.thumb}}" mode="aspectFill" />
+        <view class="goods-title">{{item.title}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 管理员跳转按钮 -->
+<view style="margin-top: 40rpx; text-align: center;" wx:if="{{isAdmin}}">
+  <button size="mini" bindtap="goToAdmin">进入管理页面</button>
+</view>
+
+</view>

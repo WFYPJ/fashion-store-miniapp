@@ -1,0 +1,30 @@
+.store-info-page {
+  padding: 20rpx;
+  text-align: center;
+}
+
+.storefront {
+  width: 100%;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+}
+
+.store-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.store-address,
+.store-contact {
+  font-size: 28rpx;
+  color: #555;
+  margin-bottom: 20rpx;
+}
+
+.wechat-qr {
+  width: 300rpx;
+  height: 300rpx;
+  margin: 0 auto;
+  border-radius: 16rpx;
+}

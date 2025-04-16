@@ -1,0 +1,90 @@
+<!-- pages/goods/details/index.wxml -->
+<view class="product-detail">
+  <!-- 主图轮播图 -->
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" circular="true">
+    <block wx:for="{{mergedImages}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="swiper-image" mode="aspectFit" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+<!-- 商品标题 -->
+<view class="product-title">{{product.title}}</view>
+
+<!-- 分类 -->
+<view class="product-category">
+  分类：{{product.categoryMain}} / {{product.categorySub}}
+</view>
+
+<!-- 尺码 -->
+<view wx:if="{{sortedSizes.length}}" class="product-section">
+  <text class="section-label">尺码：</text>
+  <view class="section-value">
+    <block wx:for="{{sortedSizes}}" wx:key="*this">
+      <text class="tag">{{item}}</text>
+    </block>
+  </view>
+</view>
+
+<!-- 颜色 -->
+<view wx:if="{{product.colors && product.colors.length}}" class="product-section">
+  <text class="section-label">颜色：</text>
+  <view class="section-value">
+    <block wx:for="{{product.colors}}" wx:key="*this">
+      <text class="tag">{{item}}</text>
+    </block>
+  </view>
+</view>
+
+<!-- 材质 -->
+<view wx:if="{{product.material}}" class="product-section">
+  <text class="section-label">材质：</text>
+  <view class="section-value">
+    <text class="tag">{{product.material}}</text>
+  </view>
+</view>
+
+<!-- 价格 -->
+<view class="product-section">
+  <view class="label-wrap">
+    <text class="section-label">价格：</text>
+  </view>
+  <view class="content-wrap">
+    <text class="section-text">{{product.price ? '￥' + product.price : '请微信咨询价格'}}</text>
+  </view>
+</view>
+
+  <!-- 描述图 -->
+  <view class="product-desc">
+    <image
+      wx:for="{{mergedDesc}}"
+      wx:key="index"
+      src="{{item}}"
+      class="product-desc-img"
+      mode="widthFix"
+    />
+  </view>
+
+  <!-- 联系按钮 -->
+  <button class="contact-btn" bindtap="onContact">联系购买</button>
+</view>
+
+<!-- 跳转按钮 -->
+<view class="detail-buttons">
+  <button size="mini" bindtap="goBack">返回上一页</button>
+  <button size="mini" bindtap="goToCategory">返回分类页</button>
+  <button size="mini" bindtap="goToHome">返回首页</button>
+</view>
+
+<!-- 微信二维码区块 -->
+<view class="qr-section">
+  <view class="qr-label">添加微信购买：</view>
+  <image 
+    src="https://fzdtest-1350382597.cos.ap-nanjing.myqcloud.com/basic/wechat.png" 
+    class="qr-image" 
+    mode="widthFix" 
+    bindtap="onContact" 
+  />
+  <view class="qr-tip">点击二维码可长按识别添加微信</view>
+</view>

@@ -1,0 +1,123 @@
+<!--pages/admin/edit.wxml-->
+<view class="form">
+
+<!-- 商品名称 -->
+<view class="card">
+  <view class="field"><text>商品名称</text></view>
+  <input placeholder="请输入商品标题" bindinput="onTitleInput" value="{{title}}" />
+</view>
+
+<!-- 主分类 -->
+<view class="card">
+  <view class="field"><text>主分类</text></view>
+  <picker mode="selector" range="{{mainCategories}}" bindchange="onMainCategoryChange">
+    <view class="picker">{{ selectedMainCategory || '请选择主分类' }}</view>
+  </picker>
+</view>
+
+<!-- 子分类 -->
+<view class="card">
+  <view class="field"><text>子分类</text></view>
+  <picker mode="selector" range="{{subCategories}}" bindchange="onSubCategoryChange">
+    <view class="picker">{{ selectedSubCategory || '请选择子分类' }}</view>
+  </picker>
+</view>
+
+<!-- 商品主图 -->
+<view class="card">
+  <view class="field"><text>商品主图</text></view>
+  <button bindtap="uploadPrimaryImage">上传主图</button>
+  
+  <view class="image-wrap" wx:if="{{primaryImageUrl}}">
+    <image src="{{primaryImageUrl}}" class="img-preview" />
+    <text class="delete-btn" bindtap="removePrimaryImage">×</text>
+  </view>
+</view>
+
+<!-- 轮播图 -->
+<view class="card">
+  <view class="field"><text>轮播图（多图）</text></view>
+  <button bindtap="uploadCarouselImages">上传轮播图</button>
+  <view class="image-list">
+    <block wx:for="{{carouselImages}}" wx:key="index">
+      <view class="image-wrap">
+        <image src="{{item}}" class="img-preview" />
+        <text class="delete-btn" data-index="{{index}}" bindtap="removeCarouselImage">×</text>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 详情图 -->
+<view class="card">
+  <view class="field"><text>详情图（多图）</text></view>
+  <button bindtap="uploadDescImages">上传详情图</button>
+  <view class="image-list">
+    <block wx:for="{{descImages}}" wx:key="index">
+      <view class="image-wrap">
+        <image src="{{item}}" class="img-preview" />
+        <text class="delete-btn" data-index="{{index}}" bindtap="removeDescImage">×</text>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 尺码 -->
+<view class="card">
+  <view class="field"><text>尺码（多选）如果有修改才选</text></view>
+
+  <!-- 原始尺码信息展示 -->
+  <view style="margin-bottom: 10rpx; font-size: 30rpx; color: #333; font-weight: bold;">
+    原始尺码：{{originalSizeText || '无'}}
+  </view>
+
+  <!-- 重新选择尺码 -->
+  <checkbox-group bindchange="onSizeChange">
+    <block wx:for="{{sizeOptions}}" wx:key="*this">
+      <label style="margin-right: 10rpx; font-size: 24rpx; font-weight: bold;">
+        <checkbox value="{{item}}" /> {{item}}
+      </label>
+    </block>
+  </checkbox-group>
+</view>
+
+<!-- 颜色 -->
+<view class="card">
+  <view class="field"><text>颜色（可添加多个）</text></view>
+  <view class="color-input-row">
+    <input placeholder="输入颜色" bindinput="onColorInput" value="{{newColor}}" />
+    <button size="mini" bindtap="addColor">添加</button>
+  </view>
+  <view class="color-tags">
+    <block wx:for="{{selectedColors}}" wx:key="*this">
+      <view class="tag">
+        {{item}} <text bindtap="removeColor" data-index="{{index}}">×</text>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 材质 -->
+<view class="card">
+  <view class="field"><text>材质</text></view>
+  <input placeholder="请输入材质" bindinput="onMaterialInput" value="{{material}}" />
+</view>
+
+<!-- 价格 -->
+<view class="card">
+  <view class="field"><text>价格</text></view>
+  <input type="number" placeholder="如 99.9" bindinput="onPriceInput" value="{{price}}" />
+</view>
+
+<!-- 是否上架 -->
+<view class="card">
+  <view class="field"><text>是否上架</text></view>
+  <switch bindchange="onPutOnSaleChange" checked="{{isPutOnSale}}" />
+</view>
+
+<!-- 提交按钮 -->
+<view class="card">
+  <button bindtap="submitProduct">提交修改</button>
+</view>
+
+</view>

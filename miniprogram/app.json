@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/category/index",
+    "pages/goods/details/index",
+    "pages/category/list/list",
+    "pages/store/index",
+    "pages/admin/index",
+    "pages/admin/add",
+    "pages/admin/goods-list",
+    "pages/admin/edit"
+  ],
+  "window": {
+    "navigationBarTitleText": "暖频道服装店"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#E64340",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "icons/home.jpg",
+        "selectedIconPath": "icons/home-active.jpg",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "iconPath": "icons/category.jpg",
+        "selectedIconPath": "icons/category-active.jpg",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/store/index",
+        "iconPath": "icons/store.jpg",
+        "selectedIconPath": "icons/store-active.jpg",
+        "text": "店铺"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

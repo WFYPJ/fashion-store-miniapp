@@ -1,0 +1,28 @@
+<view class="category-page">
+  <!-- 左侧主分类 -->
+  <view class="category-left">
+    <view
+      wx:for="{{mainCategories}}"
+      wx:key="index"
+      class="category-tab {{currentIndex === index ? 'active' : ''}}"
+      bindtap="onSelectMainCategory"
+      data-index="{{index}}"
+    >
+      {{item}}
+    </view>
+  </view>
+
+  <!-- 右侧子分类 -->
+  <view class="category-right">
+    <block wx:for="{{subCategories}}" wx:key="name">
+      <view 
+        class="sub-category" 
+        data-sub="{{item.name}}" 
+        bindtap="onClickSubCategory"
+      >
+        <image src="{{item.icon}}" class="sub-icon" />
+        <view class="sub-name">{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+</view>
