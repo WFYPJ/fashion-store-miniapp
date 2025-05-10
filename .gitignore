@@ -27,3 +27,4 @@ yarn-error.log*
 # Secret config files (DO NOT COMMIT)
 miniprogram/utils/config.js
 miniprogram/app.js
+project.private.config.json

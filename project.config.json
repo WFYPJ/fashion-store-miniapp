@@ -44,7 +44,7 @@
     "swc": false,
     "disableSWC": true
   },
-  "appid": "wxf9a4fc4e1feba05a",
+  "appid": "REPLACE_WITH_YOUR_APPID",
   "projectname": "wechat-miniapp-fashion-store-public",
   "libVersion": "3.8.2",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
