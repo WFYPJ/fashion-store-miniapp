@@ -103,32 +103,32 @@ MIT License
 Below are screenshots demonstrating the UI and core features of the Mini Program:
 
 #### Homepage
-![Homepage](screenshots/home.png)
+![Homepage](screenshots/home.PNG)
 
 #### Category Page
-![Category](screenshots/category1.png)
-![Category](screenshots/category2.png)
+![Category](screenshots/category1.PNG)
+![Category](screenshots/category2.PNG)
 
 #### Product List
-![Product List](screenshots/product-list.png)
+![Product List](screenshots/product-list.PNG)
 
 #### Product Details
-![Product Detail](screenshots/details1.png)
-![Product Detail](screenshots/details2.png)
+![Product Detail](screenshots/details1.PNG)
+![Product Detail](screenshots/details2.PNG)
 
 #### Store Information Page
-![Store Information](screenshots/store.png)
+![Store Information](screenshots/store.PNG)
 
 #### Admin Panel
-![Admin](screenshots/admin.png)
+![Admin](screenshots/admin.PNG)
 
 #### Add New Product
-![Add Product](screenshots/add1.png)
-![Add Product](screenshots/add2.png)
+![Add Product](screenshots/add1.PNG)
+![Add Product](screenshots/add2.PNG)
 
 #### Edit Product
-![Add Product](screenshots/edit-list.png)
-![Add Product](screenshots/edit1.png)
-![Add Product](screenshots/edit2.png)
-![Add Product](screenshots/edit3.png)
-![Add Product](screenshots/edit4.png)
+![Add Product](screenshots/edit-list.PNG)
+![Add Product](screenshots/edit1.PNG)
+![Add Product](screenshots/edit2.PNG)
+![Add Product](screenshots/edit3.PNG)
+![Add Product](screenshots/edit4.PNG)
