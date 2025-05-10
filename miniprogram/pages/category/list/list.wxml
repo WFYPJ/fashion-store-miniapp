@@ -1,3 +1,25 @@
+<!-- Fileter Section -->
+<view class="filter-card">
+  <view class="selected-filter-display">
+    <!-- Main Category picker -->
+    <picker mode="selector" range="{{availableMainCategories}}" bindchange="onMainPickerChange">
+      <view class="filter-tag">
+        <image src="/icons/user.png" class="filter-icon" />
+        <text class="filter-text">{{mainCategory || 'All'}}</text>
+      </view>
+    </picker>
+
+    <!-- Subcategory picker -->
+    <picker mode="selector" range="{{subPickerRange}}" bindchange="onSubPickerChange">
+      <view class="filter-tag">
+        <image src="/icons/tag.png" class="filter-icon" />
+        <text class="filter-text">{{subCategory || 'All'}}</text>
+      </view>
+    </picker>
+  </view>
+</view>
+
+<!-- Product List -->
 <view class="goods-list">
   <view
     class="goods-item"
@@ -6,7 +28,12 @@
     data-id="{{item._id}}"
     bindtap="onClickGoods"
   >
-    <image src="{{item.thumb}}" class="goods-thumb" mode="aspectFill"/>
+    <image src="{{item.thumb}}" class="goods-thumb" mode="aspectFill" />
     <view class="goods-title">{{item.title}}</view>
   </view>
+</view>
+
+<!-- Empty State Message -->
+<view wx:if="{{goods.length === 0}}" class="empty-message">
+  No matching products found.
 </view>

@@ -1,6 +1,6 @@
 <view class="home-page">
 
-<!-- 顶部轮播图 -->
+  <!-- Top Banner Carousel -->
 <view class="banner">
   <swiper class="banner-swiper" indicator-dots autoplay interval="3000" circular>
     <block wx:for="{{bannerList}}" wx:key="index">
@@ -15,25 +15,60 @@
   </swiper>
 </view>
 
-<!-- 商品列表（两列展示） -->
+<!-- Category Navigation -->
+<view class="category-wrapper-bg">
+  <scroll-view scroll-x scroll-with-animation class="category-scroll">
+    <view class="category-wrapper">
+      <block wx:for="{{categoryNavList}}" wx:key="id">
+        <view class="category-item" bindtap="onClickCategory" data-id="{{item.id}}" data-name="{{item.name}}">
+          <view class="circle-icon-container">
+            <image class="circle-icon" src="{{item.icon}}" mode="aspectFit"/>
+          </view>
+          <text class="category-name">{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+
+
+<!-- New Arrivals Section -->
 <view class="goods-section">
-  <view class="goods-grid">
-    <block wx:for="{{goodsList}}" wx:key="_id">
-      <view
-        class="goods-item"
-        data-id="{{item._id}}"
-        bindtap="onClickGoods"
-      >
-        <image class="goods-image" src="{{item.thumb}}" mode="aspectFill" />
-        <view class="goods-title">{{item.title}}</view>
+  <view class="section-title">New Arrivals</view>
+  <scroll-view scroll-x="true" class="scroll-wrapper" show-scrollbar="false">
+    <view class="scroll-grid">
+      <block wx:for="{{newArrivals}}" wx:key="_id">
+        <view class="scroll-item" data-id="{{item._id}}" bindtap="onClickGoods">
+          <image class="scroll-image" src="{{item.thumb}}" mode="aspectFill" />
+          <view class="scroll-title">{{item.title}}</view>
+        </view>
+      </block>
+
+      <!-- View More Button -->
+      <view class="scroll-item more-item" bindtap="goToMoreNew">
+        <view class="scroll-more-text">View More</view>
       </view>
-    </block>
-  </view>
+    </view>
+  </scroll-view>
 </view>
 
-<!-- 管理员跳转按钮 -->
-<view style="margin-top: 40rpx; text-align: center;" wx:if="{{isAdmin}}">
-  <button size="mini" bindtap="goToAdmin">进入管理页面</button>
-</view>
+<!-- Recommended Section -->
+<view class="goods-section">
+  <view class="section-title">Recommended for You</view>
+  <scroll-view scroll-x="true" class="scroll-wrapper" show-scrollbar="false">
+    <view class="scroll-grid">
+      <block wx:for="{{recommended}}" wx:key="_id">
+        <view class="scroll-item" data-id="{{item._id}}" bindtap="onClickGoods">
+          <image class="scroll-image" src="{{item.thumb}}" mode="aspectFill" />
+          <view class="scroll-title">{{item.title}}</view>
+        </view>
+      </block>
 
+      <!-- View More Button -->
+      <view class="scroll-item more-item" bindtap="goToMoreRecommend">
+        <view class="scroll-more-text">View More</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
 </view>

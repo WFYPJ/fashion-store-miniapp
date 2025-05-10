@@ -1,32 +1,32 @@
 <!--pages/admin/edit.wxml-->
 <view class="form">
 
-<!-- 商品名称 -->
+<!-- Product Title -->
 <view class="card">
-  <view class="field"><text>商品名称</text></view>
-  <input placeholder="请输入商品标题" bindinput="onTitleInput" value="{{title}}" />
+  <view class="field"><text>Product Title</text></view>
+  <input placeholder="Please enter the product title" bindinput="onTitleInput" value="{{title}}" />
 </view>
 
-<!-- 主分类 -->
+<!-- Main Category -->
 <view class="card">
-  <view class="field"><text>主分类</text></view>
+  <view class="field"><text>Main Category (Required)</text></view>
   <picker mode="selector" range="{{mainCategories}}" bindchange="onMainCategoryChange">
-    <view class="picker">{{ selectedMainCategory || '请选择主分类' }}</view>
+    <view class="picker">{{ selectedMainCategory || 'Select a main category' }}</view>
   </picker>
 </view>
 
-<!-- 子分类 -->
+<!-- Sub Category -->
 <view class="card">
-  <view class="field"><text>子分类</text></view>
+  <view class="field"><text>Subcategory (Required)</text></view>
   <picker mode="selector" range="{{subCategories}}" bindchange="onSubCategoryChange">
-    <view class="picker">{{ selectedSubCategory || '请选择子分类' }}</view>
+    <view class="picker">{{ selectedSubCategory || 'Select a subcategory' }}</view>
   </picker>
 </view>
 
-<!-- 商品主图 -->
+<!-- Primary Image -->
 <view class="card">
-  <view class="field"><text>商品主图</text></view>
-  <button bindtap="uploadPrimaryImage">上传主图</button>
+  <view class="field"><text>Primary Image (Required)</text></view>
+  <button bindtap="uploadPrimaryImage">Upload Image</button>
   
   <view class="image-wrap" wx:if="{{primaryImageUrl}}">
     <image src="{{primaryImageUrl}}" class="img-preview" />
@@ -34,10 +34,10 @@
   </view>
 </view>
 
-<!-- 轮播图 -->
+<!-- Carousel Images (Multiple, Optional)-->
 <view class="card">
-  <view class="field"><text>轮播图（多图）</text></view>
-  <button bindtap="uploadCarouselImages">上传轮播图</button>
+  <view class="field"><text>Carousel Images (Multiple, Optional)</text></view>
+  <button bindtap="uploadCarouselImages">Upload Image</button>
   <view class="image-list">
     <block wx:for="{{carouselImages}}" wx:key="index">
       <view class="image-wrap">
@@ -48,10 +48,10 @@
   </view>
 </view>
 
-<!-- 详情图 -->
+<!-- Description Images (Multiple, Optional) -->
 <view class="card">
-  <view class="field"><text>详情图（多图）</text></view>
-  <button bindtap="uploadDescImages">上传详情图</button>
+  <view class="field"><text>Description Images (Multiple, Optional)</text></view>
+  <button bindtap="uploadDescImages">Upload Image</button>
   <view class="image-list">
     <block wx:for="{{descImages}}" wx:key="index">
       <view class="image-wrap">
@@ -62,16 +62,12 @@
   </view>
 </view>
 
-<!-- 尺码 -->
+<!-- Sizes- -->
 <view class="card">
-  <view class="field"><text>尺码（多选）如果有修改才选</text></view>
-
-  <!-- 原始尺码信息展示 -->
+  <view class="field"><text>Sizes (Select if modified)</text></view>
   <view style="margin-bottom: 10rpx; font-size: 30rpx; color: #333; font-weight: bold;">
-    原始尺码：{{originalSizeText || '无'}}
+    Original Sizes: {{originalSizeText || 'None'}}
   </view>
-
-  <!-- 重新选择尺码 -->
   <checkbox-group bindchange="onSizeChange">
     <block wx:for="{{sizeOptions}}" wx:key="*this">
       <label style="margin-right: 10rpx; font-size: 24rpx; font-weight: bold;">
@@ -81,12 +77,12 @@
   </checkbox-group>
 </view>
 
-<!-- 颜色 -->
+<!-- Colors -->
 <view class="card">
-  <view class="field"><text>颜色（可添加多个）</text></view>
+  <view class="field"><text>Colors (Multiple)</text></view>
   <view class="color-input-row">
-    <input placeholder="输入颜色" bindinput="onColorInput" value="{{newColor}}" />
-    <button size="mini" bindtap="addColor">添加</button>
+    <input placeholder="Enter color" bindinput="onColorInput" value="{{newColor}}" />
+    <button size="mini" bindtap="addColor">addColor</button>
   </view>
   <view class="color-tags">
     <block wx:for="{{selectedColors}}" wx:key="*this">
@@ -97,27 +93,27 @@
   </view>
 </view>
 
-<!-- 材质 -->
+<!-- Material -->
 <view class="card">
-  <view class="field"><text>材质</text></view>
-  <input placeholder="请输入材质" bindinput="onMaterialInput" value="{{material}}" />
+  <view class="field"><text>Material</text></view>
+  <input placeholder="Enter material" bindinput="onMaterialInput" value="{{material}}" />
 </view>
 
-<!-- 价格 -->
+<!-- Price- -->
 <view class="card">
-  <view class="field"><text>价格</text></view>
-  <input type="number" placeholder="如 99.9" bindinput="onPriceInput" value="{{price}}" />
+  <view class="field"><text>Price-</text></view>
+  <input type="number" placeholder="e.g. 99.9" bindinput="onPriceInput" value="{{price}}" />
 </view>
 
-<!-- 是否上架 -->
+<!-- On Sale -->
 <view class="card">
-  <view class="field"><text>是否上架</text></view>
+  <view class="field"><text>Put on Sale?</text></view>
   <switch bindchange="onPutOnSaleChange" checked="{{isPutOnSale}}" />
 </view>
 
-<!-- 提交按钮 -->
+<!-- Submit -->
 <view class="card">
-  <button bindtap="submitProduct">提交修改</button>
+  <button bindtap="submitProduct">Submit Changes</button>
 </view>
 
 </view>

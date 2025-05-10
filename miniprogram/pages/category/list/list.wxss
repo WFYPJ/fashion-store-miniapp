@@ -24,3 +24,78 @@
   font-size: 28rpx;
   color: #333;
 }
+
+.filter-section {
+  margin-bottom: 20rpx;
+  padding: 0 20rpx;
+}
+
+.category-filter-scroll {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  background-color: #f6f6f6;
+  border-radius: 36rpx;
+  padding: 16rpx 28rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0,0,0,0.05);
+  border: 1rpx solid #ddd;
+  width: 180rpx;
+  height: 72rpx;
+}
+
+.filter-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 14rpx;
+  vertical-align: middle;
+  filter:grayscale(30%);
+  opacity:0.8;
+}
+
+.filter-text {
+  font-size: 26rpx;
+  color: #555;
+}
+
+.selected-filter-display {
+  display: flex;
+  gap: 24rpx;
+  padding: 12rpx 0;
+  justify-content: center;
+  width: 100%;
+}
+
+.filter-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx 36rpx;
+  border-radius: 40rpx;
+  background-color: #f0f0f5;
+  color: #333;
+  font-size: 26rpx;
+  height: 60rpx;
+  min-width: 270rpx;
+  box-shadow: inset 0 0 0 1rpx #ddd;
+  transition: all 0.2s ease;
+  border:1rpx solid rgba(0,0,0,0.05);
+}
+
+.filter-tag:active {
+  background-color: #dbefff;
+  border-color: #8ab6ff;
+  color: #0056cc;
+}
+
+.filter-card {
+  margin: 20rpx 8rpx;
+  padding: 6rpx 12rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 16rpx rgba(0, 0, 0, 0.06);
+  border: none;
+}

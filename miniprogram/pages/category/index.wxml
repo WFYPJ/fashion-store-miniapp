@@ -1,5 +1,5 @@
 <view class="category-page">
-  <!-- 左侧主分类 -->
+  <!--Left: Main Categories-->
   <view class="category-left">
     <view
       wx:for="{{mainCategories}}"
@@ -12,7 +12,7 @@
     </view>
   </view>
 
-  <!-- 右侧子分类 -->
+  <!--Right: Subcategories-->
   <view class="category-right">
     <block wx:for="{{subCategories}}" wx:key="name">
       <view 

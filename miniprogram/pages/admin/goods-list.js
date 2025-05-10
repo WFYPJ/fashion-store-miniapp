@@ -1,16 +1,11 @@
 import { fetchAllGoods } from '../../services/good/fetchGoods';
+const { MAIN_CATEGORIES, SUB_CATEGORY_MAP } = require('../../utils/constants');
 
 Page({
   data: {
     goods: [],
-    mainCategories: ['女士', '男士', '中老年', '青少年', '内衣'],
-    subCategoryMap: {
-      女士: ['短袖T恤', '衬衫', '卫衣', '毛衣', '外套', '裤子', '半身裙','连衣裙', '西装', '风衣', '羽绒服'],
-      男士: ['短袖T恤', '衬衫', '卫衣', '毛衣',  '夹克','西装', '外套', '裤子','羽绒服' ],
-      中老年: ['短袖T恤', '衬衫', '毛衣',  '开衫','棉衣', '裤子', '羽绒服'],
-      青少年: ['短袖T恤', '卫衣', '连帽衫','毛衣', '运动裤', '牛仔裤', '外套', '羽绒服'],
-      内衣: ['内裤', '保暖内衣','睡衣']
-    },
+    mainCategories: MAIN_CATEGORIES,
+    subCategoryMap: SUB_CATEGORY_MAP,
     subCategories: [],
     selectedMainCategory: '',
     selectedSubCategory: ''
@@ -21,14 +16,14 @@ Page({
     this.setData({
       selectedMainCategory: defaultMain,
       subCategories: this.data.subCategoryMap[defaultMain],
-      selectedSubCategory: '全部'
+      selectedSubCategory: 'All'
     }, this.loadGoods);
   },
 
   async loadGoods() {
-    wx.showLoading({ title: '加载中' });
+    wx.showLoading({ title: 'Loading...' });
     try {
-      const allGoods = await fetchAllGoods(); // 使用结构已调整的商品数据
+      const allGoods = await fetchAllGoods(); 
 
       const { selectedMainCategory, selectedSubCategory } = this.data;
       let filtered = allGoods;
@@ -36,14 +31,13 @@ Page({
       if (selectedMainCategory) {
         filtered = filtered.filter(item => item.categoryMain === selectedMainCategory);
       }
-      if (selectedSubCategory && selectedSubCategory !== '全部') {
+      if (selectedSubCategory && selectedSubCategory !== 'All') {
         filtered = filtered.filter(item => item.categorySub === selectedSubCategory);
       }
 
       this.setData({ goods: filtered });
     } catch (err) {
-      console.error('❌ 加载失败:', err);
-      wx.showToast({ title: '加载失败', icon: 'none' });
+      wx.showToast({ title: 'Failed to load', icon: 'none' });
     } finally {
       wx.hideLoading();
     }
@@ -54,7 +48,7 @@ Page({
     this.setData({
       selectedMainCategory: main,
       subCategories: this.data.subCategoryMap[main],
-      selectedSubCategory: '全部'
+      selectedSubCategory: 'All'
     }, this.loadGoods);
   },
 
@@ -82,26 +76,30 @@ Page({
   onShow() {
     const shouldRefresh = wx.getStorageSync('shouldRefreshGoodsList');
     if (shouldRefresh) {
-      this.loadGoods(); // ✅ 自动刷新商品列表
+      this.loadGoods(); 
       wx.removeStorageSync('shouldRefreshGoodsList');
     }
   },
 
   onDelete(e) {
     const id = e.currentTarget.dataset.id;
+    if (!id) {
+      wx.showToast({ title: 'Invalid ID', icon: 'none' });
+      return;
+    }
     wx.showModal({
-      title: '确认删除',
-      content: '删除后不可恢复，确定删除该商品？',
+      title: 'Confirm delete',
+      content: 'This action cannot be undone. Proceed?',
       success: async res => {
         if (res.confirm) {
           try {
             const db = wx.cloud.database();
-            await db.collection('shangpin').doc(id).remove();
-            wx.showToast({ title: '删除成功' });
+            await db.collection('products').doc(id).remove();
+            wx.showToast({ title: 'Deleted' });
             this.loadGoods();
           } catch (err) {
-            console.error('❌ 删除失败:', err);
-            wx.showToast({ title: '删除失败', icon: 'none' });
+            console.error('❌ Failed to delete product:', err);
+            wx.showToast({ title: 'Delete failed', icon: 'none' });
           }
         }
       }

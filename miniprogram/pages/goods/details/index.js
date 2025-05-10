@@ -1,26 +1,28 @@
 // pages/goods/details/index.js
+const { COS_URL_PREFIX } = require('../../../utils/config');
+
 Page({
   data: {
     product: null,
-    sortedSizes: [] // 新增字段，用于按顺序展示尺码
+    sortedSizes: [],
+    COS_URL_PREFIX
   },
 
   async onLoad(options) {
     const id = options.id;
     const db = wx.cloud.database();
-    const res = await db.collection('shangpin').doc(id).get();
+    const res = await db.collection('products').doc(id).get();
+    if (!res.data) {
+      wx.showToast({ title: 'Product not found', icon: 'none' });
+      return;
+    }
     const data = res.data;
 
-    // ✅ 加入这两行（原来的主子分类处理）
     data.categoryMain = data['categoryMain'];
     data.categorySub = data['categorySub'];
 
-    // ✅ 排序尺码
     const sizeOrder = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
     const sortedSizes = sizeOrder.filter(size => (data.sizes || []).includes(size));
-
-    console.log('🐛 商品详情数据:', data);
-    console.log('✅ 原始 data.sizes 是：', data.sizes);
 
     const mergedImages = [data.primaryImage, ...(data.images || []).filter(url => url !== data.primaryImage)];
     const mergedDesc = [
@@ -28,7 +30,6 @@ Page({
       ...(data.desc || []).filter(url => !mergedImages.includes(url))
     ];
 
-    // ✅ 设置数据
     this.setData({
       product: data,
       sortedSizes,
@@ -39,7 +40,7 @@ Page({
 
   onContact() {
     wx.previewImage({
-      urls: ['https://fzdtest-1350382597.cos.ap-nanjing.myqcloud.com/basic/wechat.png']
+      urls: [`${COS_URL_PREFIX}/basic/wechat.png`]
     });
   },
 

@@ -1,18 +1,18 @@
 <view class="admin-list-page">
-  <!-- 分类筛选区域 -->
+  <!--Category filter section-->
   <view class="filter-bar">
     <picker mode="selector" range="{{mainCategories}}" bindchange="onMainCategoryChange">
-      <view class="picker">主分类：{{selectedMainCategory || '全部'}}</view>
+      <view class="picker">Main Category：{{selectedMainCategory || 'All'}}</view>
     </picker>
     <picker mode="selector" range="{{subCategories}}" bindchange="onSubCategoryChange">
-      <view class="picker">子分类：{{selectedSubCategory || '全部'}}</view>
+      <view class="picker">Subcategory：{{selectedSubCategory || 'All'}}</view>
     </picker>
   </view>
 
-  <view class="header">商品管理</view>
+  <view class="header">Product Management</view>
 
   <block wx:if="{{goods.length === 0}}">
-    <view class="empty">暂无商品</view>
+    <view class="empty">No products available</view>
   </block>
 
   <block wx:for="{{goods}}" wx:key="_id">
@@ -22,11 +22,11 @@
     </view>
       <view class="info">
         <view class="title">{{item.title}}</view>
-        <view class="category">分类：{{item.categoryMain}} / {{item.categorySub}}</view>
-        <view class="status">状态：{{item.isPutOnSale ? '上架中' : '已下架'}}</view>
+        <view class="category">Category:{{item.categoryMain}} / {{item.categorySub}}</view>
+        <view class="status">Status:{{item.isPutOnSale ? 'On Sale' : 'Not Listed'}}</view>
         <view class="btn-row">
-          <button size="mini" bindtap="onEdit" data-id="{{item._id}}">编辑</button>
-          <button size="mini" type="warn" bindtap="onDelete" data-id="{{item._id}}">删除</button>
+          <button size="mini" bindtap="onEdit" data-id="{{item._id}}">Edit</button>
+          <button size="mini" type="warn" bindtap="onDelete" data-id="{{item._id}}">Delete</button>
         </view>
       </view>
     </view>

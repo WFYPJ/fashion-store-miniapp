@@ -15,16 +15,15 @@
   margin-bottom: 10rpx;
 }
 
-.store-address,
-.store-contact {
-  font-size: 28rpx;
-  color: #555;
-  margin-bottom: 20rpx;
-}
-
-.wechat-qr {
+.qr-image {
   width: 300rpx;
   height: 300rpx;
-  margin: 0 auto;
-  border-radius: 16rpx;
+  border-radius: 12rpx;
+  margin: 20rpx auto 10rpx;
+  display: block;
+}
+
+.admin-btn {
+  margin-top: 40rpx;
+  text-align: center;
 }

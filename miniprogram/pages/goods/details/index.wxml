@@ -1,6 +1,6 @@
 <!-- pages/goods/details/index.wxml -->
 <view class="product-detail">
-  <!-- 主图轮播图 -->
+  <!-- Product Image Carouse -->
   <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" circular="true">
     <block wx:for="{{mergedImages}}" wx:key="index">
       <swiper-item>
@@ -9,53 +9,53 @@
     </block>
   </swiper>
 
-<!-- 商品标题 -->
+<!-- Product Title -->
 <view class="product-title">{{product.title}}</view>
 
-<!-- 分类 -->
+<!-- Category -->
 <view class="product-category">
   分类：{{product.categoryMain}} / {{product.categorySub}}
 </view>
 
-<!-- 尺码 -->
+<!-- Sizes -->
 <view wx:if="{{sortedSizes.length}}" class="product-section">
-  <text class="section-label">尺码：</text>
+  <text class="section-label">Size:</text>
   <view class="section-value">
-    <block wx:for="{{sortedSizes}}" wx:key="*this">
+    <block wx:for="{{sortedSizes}}" wx:key="index">
       <text class="tag">{{item}}</text>
     </block>
   </view>
 </view>
 
-<!-- 颜色 -->
+<!-- Colors -->
 <view wx:if="{{product.colors && product.colors.length}}" class="product-section">
-  <text class="section-label">颜色：</text>
+  <text class="section-label">Color:</text>
   <view class="section-value">
-    <block wx:for="{{product.colors}}" wx:key="*this">
+    <block wx:for="{{product.colors}}" wx:key="index">
       <text class="tag">{{item}}</text>
     </block>
   </view>
 </view>
 
-<!-- 材质 -->
+<!-- Material -->
 <view wx:if="{{product.material}}" class="product-section">
-  <text class="section-label">材质：</text>
+  <text class="section-label">Material:</text>
   <view class="section-value">
     <text class="tag">{{product.material}}</text>
   </view>
 </view>
 
-<!-- 价格 -->
+<!-- Price -->
 <view class="product-section">
   <view class="label-wrap">
-    <text class="section-label">价格：</text>
+    <text class="section-label">Price:</text>
   </view>
   <view class="content-wrap">
-    <text class="section-text">{{product.price ? '￥' + product.price : '请微信咨询价格'}}</text>
+    <text class="section-text">{{product.price ? '$' + product.price : 'Please contact us via WeChat for pricing'}}</text>
   </view>
 </view>
 
-  <!-- 描述图 -->
+  <!-- Description Images -->
   <view class="product-desc">
     <image
       wx:for="{{mergedDesc}}"
@@ -65,26 +65,25 @@
       mode="widthFix"
     />
   </view>
-
-  <!-- 联系按钮 -->
-  <button class="contact-btn" bindtap="onContact">联系购买</button>
+  <!-- Contact Button -->
+  <button class="contact-btn" bindtap="onContact">Contact via WeChat</button>
 </view>
-
-<!-- 跳转按钮 -->
+<!-- Navigation Buttons -->
 <view class="detail-buttons">
-  <button size="mini" bindtap="goBack">返回上一页</button>
-  <button size="mini" bindtap="goToCategory">返回分类页</button>
-  <button size="mini" bindtap="goToHome">返回首页</button>
+  <button size="mini" bindtap="goBack">Back</button>
+  <button size="mini" bindtap="goToCategory">Category</button>
+  <button size="mini" bindtap="goToHome">Home</button>
 </view>
-
-<!-- 微信二维码区块 -->
+<!-- QR Code Section -->
 <view class="qr-section">
-  <view class="qr-label">添加微信购买：</view>
+  <view class="qr-label">Scan QR to contact:</view>
   <image 
-    src="https://fzdtest-1350382597.cos.ap-nanjing.myqcloud.com/basic/wechat.png" 
+    src="{{COS_URL_PREFIX}}/basic/wechat.png" 
     class="qr-image" 
     mode="widthFix" 
     bindtap="onContact" 
   />
-  <view class="qr-tip">点击二维码可长按识别添加微信</view>
+  <view class="qr-tip">Tap the QR code to preview and scan</view>
+
+
 </view>

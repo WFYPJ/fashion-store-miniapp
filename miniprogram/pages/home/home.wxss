@@ -1,5 +1,6 @@
 .banner-swiper {
-  height: 300rpx;
+  width:100%;
+  height: 350rpx;
 }
 
 .banner-image {
@@ -38,4 +39,115 @@
   padding: 10rpx;
   font-size: 28rpx;
   color: #333;
+}
+
+.category-nav {
+  padding: 20rpx 0;
+  background-color: #fff;
+}
+
+.category-wrapper-bg {
+  background-color: #f7f4f3; 
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: center;
+}
+
+.category-scroll {
+  width: 600rpx;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.category-item {
+  flex-shrink: 0;   
+  width: 120rpx;
+  text-align: center;
+  margin-right: 16rpx;
+}
+
+.category-icon {
+  width: 48rpx;
+  height: 48rpx;
+  object-fit: contain;
+}
+.category-name {
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.category-wrapper {
+  display: flex;
+  gap:32rpx;     
+}
+
+.circle-icon-container {
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #eee;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8rpx auto;
+  overflow: hidden; 
+}
+
+.scroll-wrapper {
+  white-space: nowrap;
+  overflow-x: auto;
+  padding-left: 0rpx;
+}
+
+.scroll-grid {
+  display: flex;
+  gap: 20rpx;
+}
+
+.scroll-item {
+  width: 350rpx;
+  flex-shrink: 0;
+  background-color: #fff;
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.06);
+  padding-bottom: 0;
+}
+
+.scroll-image {
+  width: 100%;
+  height: 240rpx;
+  object-fit: cover;
+  border-top-left-radius: 12rpx;
+  border-top-right-radius: 12rpx;
+  border-radius: 0;
+}
+
+.scroll-title {
+  font-size: 26rpx;
+  color: #333;
+  padding: 1rpx 10rpx 14rpx;  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.more-item {
+  width: 350rpx;
+  flex-shrink: 0;
+  background-color: #fff;
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-more-text {
+  font-size: 28rpx;
+  color: #666;
 }

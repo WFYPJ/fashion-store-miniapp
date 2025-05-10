@@ -1,26 +1,34 @@
 <view class="store-info-page">
-  <!-- 店铺门面图 -->
-  <!-- 店铺门面图（改为 COS 图片） -->
+  <!--Storefront image-->
   <image 
-    src="https://fzdtest-1350382597.cos.ap-nanjing.myqcloud.com/basic/storefront.jpg" 
+    src="{{COS_URL_PREFIX}}/basic/storefront.png" 
     class="storefront" 
-    mode="widthFix" 
+    mode="aspectFill" 
   />
 
-  <!-- 店铺信息 -->
-  <view class="store-name">🌟 暖频道羽绒服 服装店</view>
-  <view class="store-address">📍 地址：聊城市东昌府区侯营镇府前街路北胡同里商业街</view>
-  <view class="store-contact">📱 联系电话：15066350958</view>
-  <view class="store-contact">💬 添加微信：点击下方二维码</view>
+  <!--Store name-->
+  <view class="store-name">🌟 Fashion Boutique</view>
+    <!--Store address-->
+  <view class="store-address">📍 Address: Example Street, Example City</view>
+    <!--Contact phone-->
+  <view class="store-contact">📱 Phone: 123-456-7890</view>
+    <!--WeChat contact-->
+  <view class="store-contact">💬 Add on WeChat: Scan the QR code below</view>
 
-  <!-- 微信二维码 -->
+  <!--QR Code section-->
   <view class="qr-section">
     <image 
-      src="https://fzdtest-1350382597.cos.ap-nanjing.myqcloud.com/basic/wechat.png" 
+      src="{{COS_URL_PREFIX}}/basic/wechat.png" 
       class="qr-image" 
-      mode="widthFix" 
+      mode="aspectFill" 
       bindtap="onContact" 
     />
-    <view class="qr-tip">点击二维码可长按识别添加微信</view>
+    <view class="qr-tip">Tap the QR code to preview (example only)</view>
   </view>
+
+  <!-- Admin Panel Entry (Visible to Admins Only) -->
+  <view class="admin-btn" wx:if="{{isAdmin}}">
+    <button size="default" type="primary" plain bindtap="goToAdmin">Enter Admin Panel</button>
+  </view>
+
 </view>
